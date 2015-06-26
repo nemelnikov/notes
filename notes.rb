@@ -1,3 +1,4 @@
+require "unicode"; #needed for work with cyrillic symbols
 puts "reading clippings_export.txt file"
 text=IO.read('clippings_export.txt')
 open_tag="<blockquote>"
@@ -9,7 +10,8 @@ puts "create array"
 
 
 text_array.each_with_index do |el, i| 
-	el.strip!
+	el.strip! #delete spaces
+	el=Unicode::capitalize(el) #make first letter upcased
 	text_array[i]=open_tag+el+close_tag
 end
 
