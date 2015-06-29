@@ -11,7 +11,7 @@ puts "create array"
 
 text_array.each_with_index do |el, i| 
 	el.strip! #delete spaces
-	el=Unicode::capitalize(el) #make first letter upcased
+	el[0]=Unicode::capitalize(el[0]) #make first letter upcased
 	text_array[i]=open_tag+el+close_tag
 end
 
